@@ -4,6 +4,7 @@
 // 3. understandable variables
 // 4. fields
 // 5. subclass
+// 6. simplify conditionals
 
 public class Shapes{
     private int width = 0;
@@ -50,12 +51,20 @@ public class Shapes{
         final boolean isRectangle = (radius == 0 || circumference == 0);
 
         if(isCircle){
-            System.out.println("Shape is a Circle."); 
+            isCircle();
         } else if(isRectangle){
-            System.out.println("Shape is a Rectangle."); 
+            isRectangle();
         } else {
             System.out.println("Unknown Shape."); 
         }
+    }
+
+    static void isCircle(){
+        System.out.println("Shape is a Circle."); 
+    }
+
+    static void isRectangle(){
+        System.out.println("Shape is a Rectangle."); 
     }
     public static void main(String[] args){
         Shapes myCircle = Shapes.createCircle(5, 25);
@@ -68,5 +77,11 @@ public class Shapes{
 class Circle extends Shapes{
     public void getArea(){
         System.out.println("Area of Circle: ");
+    }
+}
+
+class Rectangle extends Shapes{
+    public void getArea(){
+        System.out.println("Area of Rectange: ");
     }
 }
